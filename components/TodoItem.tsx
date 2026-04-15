@@ -14,13 +14,13 @@ export default function TodoItem({
   onEdit: (id: string, newText: string) => void;
 }) {
   return (
-    <li className="group flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-4 py-3 shadow-sm transition-all hover:shadow-md">
+    <li className="group flex items-center gap-3 rounded-lg border border-white/10 bg-white/5 px-4 py-3 shadow-sm backdrop-blur-sm transition-all hover:bg-white/10 hover:shadow-md hover:shadow-violet-500/5">
       <button
         onClick={() => onToggle(todo.id)}
         className={`flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border-2 transition-colors ${
           todo.completed
-            ? 'border-emerald-500 bg-emerald-500 text-white'
-            : 'border-gray-300 hover:border-emerald-400'
+            ? 'border-amber-400 bg-amber-400 text-slate-900'
+            : 'border-violet-400/50 hover:border-amber-400'
         }`}
         aria-label={todo.completed ? 'Mark as incomplete' : 'Mark as complete'}
       >
@@ -42,7 +42,7 @@ export default function TodoItem({
 
       <span
         className={`flex-1 text-sm transition-all ${
-          todo.completed ? 'text-gray-400 line-through' : 'text-gray-800'
+          todo.completed ? 'text-violet-300/40 line-through' : 'text-gray-100'
         }`}
         onDoubleClick={() => {
           const newText = prompt('Edit todo:', todo.text);
@@ -56,7 +56,7 @@ export default function TodoItem({
 
       <button
         onClick={() => onDelete(todo.id)}
-        className="flex-shrink-0 rounded p-1 text-gray-300 opacity-0 transition-all hover:bg-red-50 hover:text-red-500 group-hover:opacity-100"
+        className="flex-shrink-0 rounded p-1 text-violet-400/30 opacity-0 transition-all hover:bg-rose-500/20 hover:text-rose-400 group-hover:opacity-100"
         aria-label="Delete todo"
       >
         <svg

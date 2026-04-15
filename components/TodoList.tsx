@@ -77,12 +77,12 @@ export default function TodoList() {
           }
           onKeyDown={handleKeyDown}
           placeholder="What needs to be done?"
-          className="flex-1 rounded-lg border border-gray-300 px-4 py-3 text-sm shadow-sm transition-colors focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200"
+          className="flex-1 rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-gray-100 placeholder-violet-300/40 shadow-sm backdrop-blur-sm transition-colors focus:border-amber-400/50 focus:outline-none focus:ring-2 focus:ring-amber-400/20"
         />
         <button
           onClick={addTodo}
           disabled={inputValue.trim() === ''}
-          className="rounded-lg bg-indigo-600 px-6 py-3 text-sm font-medium text-white shadow-sm transition-colors hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-200 disabled:cursor-not-allowed disabled:opacity-50"
+          className="rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 px-6 py-3 text-sm font-medium text-slate-900 shadow-sm transition-all hover:from-amber-400 hover:to-orange-400 hover:shadow-md hover:shadow-amber-500/20 focus:outline-none focus:ring-2 focus:ring-amber-400/20 disabled:cursor-not-allowed disabled:opacity-50"
         >
           Add
         </button>
@@ -98,8 +98,8 @@ export default function TodoList() {
                 onClick={() => setFilter(f)}
                 className={`rounded-md px-3 py-1.5 text-xs font-medium capitalize transition-colors ${
                   filter === f
-                    ? 'bg-indigo-100 text-indigo-700'
-                    : 'text-gray-500 hover:bg-gray-100 hover:text-gray-700'
+                    ? 'bg-amber-400/20 text-amber-300'
+                    : 'text-violet-300/50 hover:bg-white/5 hover:text-violet-200'
                 }`}
               >
                 {f}
@@ -107,13 +107,13 @@ export default function TodoList() {
             ))}
           </div>
           <div className="flex items-center gap-3">
-            <span className="text-xs text-gray-400">
+            <span className="text-xs text-violet-300/50">
               {activeCount} item{activeCount !== 1 ? 's' : ''} left
             </span>
             {completedCount > 0 && (
               <button
                 onClick={clearCompleted}
-                className="text-xs text-red-400 transition-colors hover:text-red-600"
+                className="text-xs text-rose-400/60 transition-colors hover:text-rose-400"
               >
                 Clear completed
               </button>
@@ -136,10 +136,10 @@ export default function TodoList() {
           ))}
         </ul>
       ) : (
-        <div className="flex flex-col items-center justify-center rounded-lg border-2 border-dashed border-gray-200 py-12">
+        <div className="flex flex-col items-center justify-center rounded-lg border-2 border-dashed border-white/10 py-12">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="mb-3 h-12 w-12 text-gray-300"
+            className="mb-3 h-12 w-12 text-violet-400/20"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -151,7 +151,7 @@ export default function TodoList() {
               d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
             />
           </svg>
-          <p className="text-sm text-gray-400">
+          <p className="text-sm text-violet-300/40">
             {filter === 'all'
               ? 'No todos yet. Add one above!'
               : filter === 'active'
